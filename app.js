@@ -21,6 +21,39 @@ import './index.css';
 //     <h1> Header Component </h1>
 // </div> )
 
+const Body = () =>{
+    return(
+        <div className="bodyContainer">
+            <div className="search">Search</div>
+            <div className="res-container">
+                <RestroCard />
+                <RestroCard />
+                <RestroCard />
+                <RestroCard />
+                <RestroCard />
+                <RestroCard />
+                <RestroCard />
+            </div>
+        </div>
+    )
+}
+
+const RestroCard = () => {
+    return(
+        <div className="res-card">
+            <div className="res-img">
+                <img src="https://res.cloudinary.com/swiggy/image/upload/f_auto,q_auto,fl_lossy/u2aycylttqjfrcs4clzb" />
+            </div>
+            <div className="res-details">
+                <h3>Paradise</h3>
+                <h4>Nakkalagutta, Hanamkonda</h4>
+                <h4>4.0</h4>
+                <h4>30 mins</h4>
+            </div>
+        </div>
+    )
+}
+
 const HeaderComponent = () => {
     return(
         <div className="header">
@@ -43,6 +76,7 @@ const Applayout = () =>{
     return(
         <div className="container">
             <HeaderComponent />
+            <Body />
         </div>
     )
 }
