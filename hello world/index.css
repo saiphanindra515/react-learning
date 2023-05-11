@@ -1,0 +1,48 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img{
+    width: 200px;
+}
+
+.nav-items > ul{
+    display: flex;
+    font-size: 24px;
+    list-style-type: none;
+}
+
+.nav-items > ul > li{
+   padding: 10px;
+   margin: 10px ;
+}
+
+.res-card{
+    width: 300px;
+    margin: 20px;
+    background-color: #f0f0f0;
+}
+
+.res-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.bodyContainer{
+    margin: 10px;
+}
+
+.res-container{
+    margin: 20px 0px;
+}
+
+.res-img img{
+    width: 290px;
+    margin: 5px;
+}
+
+.res-details{
+    margin: 10px;
+}
