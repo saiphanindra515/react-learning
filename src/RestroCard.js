@@ -1,7 +1,8 @@
 import { BASE_URL } from "./utils/constants"
 
 const RestroCard = ({resData}) => {
-    const {name, cuisines, cloudinaryImageId, costForTwo, deliveryTime } = resData.data
+    console.log(resData);
+    const {name, cuisines, cloudinaryImageId, costForTwo, deliveryTime } = resData.data;
     return(
         <div className="res-card">
             <div className="res-img">

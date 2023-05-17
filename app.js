@@ -1,8 +1,13 @@
-import React from "react";
+import React, {lazy, Suspense} from "react";
 import ReactDOM from "react-dom/client";
 import './index.css';
 import HeaderComponent from "./src/HeaderComponent";
 import Body from "./src/Body";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import About from "./src/About";
+import RestaurantMenu from "./src/RestaurantMenu";
+
+const Instamart = lazy(() => import ("./src/Instamart"));
 
 //const heading = React.createElement("h1", {id:"heading"}, "Hello world from React!!");
 // const parent = React.createElement("div",{id:"parent"}, [
@@ -23,15 +28,43 @@ import Body from "./src/Body";
 //     <h1> Header Component </h1>
 // </div> )
 
-const Applayout = () =>{
+const Applayout = () =>{ 
     return(
         <div className="container">
             <HeaderComponent />
-            <Body />
+            <Outlet />
         </div>
     )
 }
 
+const appRouter = createBrowserRouter([
+    {
+        path: "/",
+        element: <Applayout />,
+        children: [
+            {
+                path: "/",
+                element: <Body />
+            },
+            {
+                path: "/about",
+                element: <About />
+            },
+            {
+                path: "/restaurant/:id",
+                element: <RestaurantMenu />
+            },{
+                path: "/instamart",
+                element: 
+                    <Suspense>
+                        <Instamart />
+                    </Suspense>
+                
+            }
+        ]
+    }
+])
+
 // const jsxHeading = (<h1 id="heading" tabIndex="5">Namaste React</h1>);
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<Applayout />);
+root.render(<RouterProvider router={appRouter} />);
