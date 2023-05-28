@@ -1,4 +1,4 @@
-import React, {lazy, Suspense} from "react";
+import React, {lazy, Suspense, useEffect, useState} from "react";
 import ReactDOM from "react-dom/client";
 import './index.css';
 import HeaderComponent from "./src/HeaderComponent";
@@ -6,6 +6,9 @@ import Body from "./src/Body";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import About from "./src/About";
 import RestaurantMenu from "./src/RestaurantMenu";
+import UserContext from "./src/utils/UserContext";
+import { Provider } from "react-redux";
+import store from "./src/utils/store"; 
 
 const Instamart = lazy(() => import ("./src/Instamart"));
 
@@ -29,11 +32,20 @@ const Instamart = lazy(() => import ("./src/Instamart"));
 // </div> )
 
 const Applayout = () =>{ 
+    const [user, setUser] = useState({
+        name: "Suhruda",
+        email: "suvvi@gmail.com"
+    })
+
     return(
+        <Provider store={store}>
+        <UserContext.Provider value={{user}}>
         <div className="container">
             <HeaderComponent />
             <Outlet />
         </div>
+        </UserContext.Provider>
+        </Provider>
     )
 }
 

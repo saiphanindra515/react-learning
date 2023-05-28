@@ -19,9 +19,11 @@
   },
   "homepage": "https://github.com/saiphanindra515/react-learning#readme",
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.5",
     "parcel": "^2.8.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-redux": "^8.0.5",
     "react-router-dom": "^6.11.1",
     "reactdom": "^2.0.0"
   },
